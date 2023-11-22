@@ -14,12 +14,12 @@ export default defineUserConfig({
     // docsBranch: "master",
     // docsDir: "blog",
     lastUpdatedText: "",
-    // autoSetBlogCategories: true,
-    // autoAddCategoryToNavbar: {
-    //   location: 1, // 默认 0
+    autoSetBlogCategories: true,
+    autoAddCategoryToNavbar: {
+      location: 1, // 默认 0
     //   categoryText: '分类', // 默认 categories
     //   tagText: 'tags' // 默认 tags
-    // },
+    },
     // series 为原 sidebar
     series: {
       // "/docs/theme-reco/": [
@@ -35,8 +35,8 @@ export default defineUserConfig({
     },
     navbar: [
       { text: "Home", link: "/" },
-      { text: "Categories", link: "/categories/linux/1/" },
-      { text: "Tags", link: "/tags/linux/1/" },
+      // { text: "Categories", link: "/categories/linux/1/" },
+      // { text: "Tags", link: "/tags/linux/1/" },
       // {
       //   text: "Docs",
       //   children: [
