@@ -35,6 +35,8 @@ export default defineUserConfig({
     },
     navbar: [
       { text: "Home", link: "/" },
+      { text: '时间轴', link: '/timeLine/', icon: 'reco-date' },
+      { text: '博客', link: '/posts/', icon: 'reco-date' },
       // { text: "Categories", link: "/categories/linux/1/" },
       // { text: "Tags", link: "/tags/linux/1/" },
       // {
