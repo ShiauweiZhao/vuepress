@@ -4,7 +4,7 @@ modules: # 指定首页展示模块
   # - BannerBrand
   - banner
   - Blog
-  - MdContent
+  # - MdContent
   # - Features
   - Footer
 banner: # banner 模块的配置
@@ -27,8 +27,10 @@ banner: # banner 模块的配置
 #   socialLinks: # 社交地址
 #     - { icon: 'LogoGithub', link: 'https://github.com/recoluan' }
 blog: # blog 模块的配置
-  socialLinks: # 社交地址
-    - { icon: 'LogoGithub', link: 'https://github.com/recoluan' }
+  socialLinks: # 
+    - { icon: 'LogoEmail', link: 'zhaoxiaoweiuavs.fun' }
+    - { icon: 'LogoGithub', link: 'https://github.com/ShiauweiZhao' }
+    - { icon: 'LogoWechat', link: 'langzi19931013' }
 footer: # 底部模块的配置
   record: 津ICP备2023008366号-1
   recordLink: https://beian.miit.gov.cn
