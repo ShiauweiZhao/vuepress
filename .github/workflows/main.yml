@@ -1,27 +1,39 @@
-name: Deploy GitHub Pages
+name: Deploy static content to Pages
 
-# 触发条件：在 push 到 master 分支后
 on:
   push:
-    branches:
-      - master
+    branches: ["master"]
 
-# 任务
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          persist-credentials: false
-
-      - name: Build
-        run: yarn install && yarn build
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+          node-version: 16
+          cache: npm
+      - uses: pnpm/action-setup@v2
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: .vuepress/dist
+          version: 7.3.0
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      # - name: Build Packages
+      #   run: pnpm run build
+
+      - name: Build Docs
+        run: pnpm run build
+
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          repo: vuepress-reco/vuepress-reco.github.io
+          target_branch: master
+          build_dir: docs/.vuepress/dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
